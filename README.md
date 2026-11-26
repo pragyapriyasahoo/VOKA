@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.svg" alt="VOKA AI banner" width="100%"/>
+
 </p>
 
 <div align="center">
