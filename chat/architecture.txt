@@ -1,0 +1,130 @@
+┌─────────────────┐
+                    │ Character Engine│
+                    │                 │
+                    │ personality     │
+                    │ rules           │
+                    │ voice           │
+                    │ memory policy   │
+                    └────────┬────────┘
+                             │
+                             ▼
+USER ──► STT ──► SAFETY ──► EMOTION ──► MEMORY (PostgreSQL)
+                  │          │             │
+                  │          │             ▼
+                  │          │          Memories table
+                  │          │             │
+                  │          └─────────────┤
+                  │                        │
+                  │                        ▼
+                  │                  Context Builder
+                  │                        │
+                  │                        ▼
+                  │                  Voka LLM
+                  │                        │
+                  │                 ┌──────┴──────┐
+                  │                 │             │
+                  │              response      emotion
+                  │                 │             │
+                  │                 └──────┬──────┘
+                  │                        ▼
+                  │                 Voice Controller
+                  │                        │
+                  │                 character voice
+                  │                 + emotion
+                  │                 + language
+                  │                        │
+                  │                        ▼
+                  │                      TTS
+                  │                        │
+                  └────────────────────────► Audio
+
+
+                    ┌─────────────────────┐
+                    │       USER          │
+                    └──────────┬──────────┘
+                               │
+                         Text / Voice Input
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │       STT           │
+                    │ Speech → Text       │
+                    │ (timeout-based)     │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   SAFETY ENGINE     │
+                    │ Crisis / Abuse      │
+                    │ keyword-based       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ EMOTION DETECTION  │
+                    │ User emotion       │
+                    │ DistilBERT classifier│
+                    └──────────┬──────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 ▼                           ▼
+        ┌────────────────┐           ┌────────────────┐
+        │ USER MEMORY    │           │  (No RAG)      │
+        │ PostgreSQL     │           │ Future work:   │
+        │ - conversations│           │ vector search  │
+        │ - messages     │           │                │
+        │ - memories     │           │                │
+        │ - emotion_events│          │                │
+        └───────┬────────┘           └────────────────┘
+                │
+                └────────────────┬────────────────┐
+                                 ▼
+                      ┌─────────────────────┐
+                      │  CONTEXT BUILDER    │
+                      │ Character           │
+                      │ Memory (PostgreSQL) │
+                      │ Emotion             │
+                      │ Conversation        │
+                      └──────────┬──────────┘
+                                 │
+                                 ▼
+                      ┌─────────────────────┐
+                      │     VOKA LLM        │
+                      │ Ollama: gemma3      │
+                      │ (no LoRA, no Qwen)  │
+                      └──────────┬──────────┘
+                                 │
+                          Response + Emotion
+                                 │
+                                 ▼
+                      ┌─────────────────────┐
+                      │  VOICE CONTROLLER   │
+                      │ Character voice     │
+                      │ Emotion/prosody     │
+                      │ Language-aware      │
+                      └──────────┬──────────┘
+                                 │
+                                 ▼
+                      ┌─────────────────────┐
+                      │       TTS           │
+                      │ Edge TTS (presets)  │
+                      │ Prosody per char    │
+                      └──────────┬──────────┘
+                                 │
+                                 ▼
+                              USER
+
+
+DATA STORES:
+- PostgreSQL (primary): users, characters, conversations, messages, memories, emotion_events
+- Dataset: voka/data/ (JSON files for character_rules, crisis_redirect, emotional_support, preferences_and_memory)
+- No Qdrant, no vector DB, no LoRA training pipeline
+
+
+REMOVED / FUTURE WORK:
+- RAG pipeline (voka/rag/*) - stubs removed, documented here
+- Modular training (voka/training/*) - stubs removed, documented here
+- Unused data loaders: coping_strategies, general_mental_health
+- Vector embeddings (voka/database/vector.py)
+- Qdrant integration
+- Qwen + LoRA fine-tuning pipeline

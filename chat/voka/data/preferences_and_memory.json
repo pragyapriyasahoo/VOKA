@@ -1,0 +1,14 @@
+[
+  {
+    "type": "preference",
+    "pattern": "i like",
+    "example": "I like orange ice cream",
+    "store_as": "User preference"
+  },
+  {
+    "type": "emotion",
+    "pattern": "i feel",
+    "example": "I feel sad today",
+    "store_as": "User emotion"
+  }
+]

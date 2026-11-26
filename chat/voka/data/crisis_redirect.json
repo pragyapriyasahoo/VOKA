@@ -1,0 +1,69 @@
+[
+  {
+    "trigger": "self_harm",
+    "patterns": ["cut myself", "hurt myself", "self harm", "khud ko nuksaan"],
+    "response_en": "I care about your safety. Please talk to a trusted adult or a mental health professional immediately.",
+    "response_hi": "आपकी सुरक्षा बहुत ज़रूरी है। कृपया तुरंत किसी भरोसेमंद व्यक्ति या मानसिक स्वास्थ्य विशेषज्ञ से बात करें।"
+  },
+  {
+    "trigger": "suicidal_thoughts",
+    "patterns": [
+      "want to die",
+      "end my life",
+      "kill myself",
+      "marna chahta",
+      "marna chahti"
+    ],
+    "response_en": "I’m really concerned about you. You deserve help and support right now. Please reach out to a trusted adult or a professional immediately.",
+    "response_hi": "मुझे आपकी बहुत चिंता हो रही है। आप मदद और समर्थन के हक़दार हैं। कृपया तुरंत किसी भरोसेमंद व्यक्ति या विशेषज्ञ से संपर्क करें।"
+  },
+  {
+    "trigger": "hopelessness",
+    "patterns": [
+      "nothing will change",
+      "no point living",
+      "sab bekaar hai",
+      "kuch bhi theek nahi hoga"
+    ],
+    "response_en": "It sounds like you’re feeling very hopeless. You don’t have to go through this alone. Talking to someone you trust can really help.",
+    "response_hi": "लगता है आप बहुत निराश महसूस कर रहे हैं। आपको यह अकेले सहने की ज़रूरत नहीं है। किसी भरोसेमंद व्यक्ति से बात करना मदद कर सकता है।"
+  },
+  {
+    "trigger": "extreme_loneliness",
+    "patterns": [
+      "no one cares",
+      "i am alone",
+      "koi nahi hai",
+      "main bilkul akela hoon"
+    ],
+    "response_en": "Feeling alone can be very painful. I’m glad you reached out. Please consider talking to someone who can support you in person.",
+    "response_hi": "अकेलापन बहुत दर्दनाक हो सकता है। अच्छा है कि आपने बात की। कृपया किसी ऐसे व्यक्ति से बात करें जो आपको व्यक्तिगत रूप से सहारा दे सके।"
+  },
+  {
+    "trigger": "panic_attack",
+    "patterns": [
+      "can't breathe",
+      "heart racing",
+      "panic attack",
+      "saans nahi aa rahi"
+    ],
+    "response_en": "This sounds very overwhelming. Try to slow your breathing, and please seek immediate support from someone nearby.",
+    "response_hi": "यह बहुत ज़्यादा घबराहट जैसा लग रहा है। कृपया साँसों को धीरे करें और तुरंत किसी पास के व्यक्ति से मदद लें।"
+  },
+  {
+    "trigger": "abuse_or_violence",
+    "patterns": ["being hurt", "someone hits me", "abuse", "maar raha hai"],
+    "response_en": "I’m really sorry this is happening to you. Your safety matters. Please reach out to a trusted adult or local support services immediately.",
+    "response_hi": "मुझे दुख है कि आपके साथ ऐसा हो रहा है। आपकी सुरक्षा सबसे ज़रूरी है। कृपया तुरंत किसी भरोसेमंद व्यक्ति या सहायता सेवा से संपर्क करें।"
+  },
+  {
+    "trigger": "mental_breakdown",
+    "patterns": [
+      "can't handle this",
+      "breaking down",
+      "sab kuch toot raha hai"
+    ],
+    "response_en": "It sounds like things feel too heavy right now. Please pause and reach out to someone who can help you through this moment.",
+    "response_hi": "लगता है सब कुछ बहुत भारी हो गया है। कृपया रुकें और किसी ऐसे व्यक्ति से संपर्क करें जो इस समय आपकी मदद कर सके।"
+  }
+]

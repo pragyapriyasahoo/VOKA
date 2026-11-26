@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.8.0
+    container_name: voka-qdrant
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6333:6333"  # localhost only
+      - "127.0.0.1:6334:6334"  # gRPC
+    volumes:
+      - qdrant_storage:/qdrant/storage
+      - qdrant_snapshots:/qdrant/snapshots
+    environment:
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__SERVICE__GRPC_PORT=6334
+      - QDRANT__LOG_LEVEL=INFO
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:6333/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
+
+volumes:
+  qdrant_storage:
+  qdrant_snapshots:

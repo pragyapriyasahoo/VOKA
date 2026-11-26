@@ -1,0 +1,12 @@
+[
+  {
+    "intent": "mental_health_definition",
+    "response_en": "Mental health is about how we think, feel, and handle daily life. Everyone has mental health.",
+    "response_hi": "मानसिक स्वास्थ्य इस बारे में है कि हम कैसे सोचते, महसूस करते और जीवन संभालते हैं।"
+  },
+  {
+    "intent": "mental_illness_definition",
+    "response_en": "Mental illness is a health condition that affects thoughts or emotions. It is not a weakness.",
+    "response_hi": "मानसिक बीमारी कोई कमजोरी नहीं है, यह एक स्वास्थ्य समस्या है।"
+  }
+]
